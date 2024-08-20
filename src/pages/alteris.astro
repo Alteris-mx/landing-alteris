@@ -1,0 +1,158 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import Header from '~/components/widgets/Header.astro';
+import Footer from '~/components/widgets/Footer.astro';
+import Announcement from '~/components/widgets/Announcement.astro';
+import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
+import icon from 'astro-icon';
+
+import { headerData, footerData } from '~/navigation';
+
+import type { MetaData } from '~/types';
+import Steps2 from '~/components/widgets/Steps2.astro';
+import Hero2 from '~/components/widgets/Hero2.astro';
+import Brands from '~/components/widgets/Brands.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import { Icon } from 'astro-icon/components';
+
+export interface Props {
+  metadata?: MetaData;
+}
+
+const { metadata } = Astro.props;
+
+
+const aboutsText = `Somos una empresa de desarrollo de software enfocado en ofrecer soluciones informaticas con experiencia en el sectores comercial e 
+Industrial dispuesta a ayudarte a crear herramientas tecnológicas para la resolución de problemáticas en tu ambito. 
+Aprovechamos el poder de múltiples tecnologías para crear soluciones personalizadas que impulsan la eficiencia, la productividad y el crecimiento de nuestros clientes.`
+---
+<Layout metadata={metadata}>
+  <slot name="header">
+    <Header {...headerData} isSticky showRssFeed showToggleTheme />
+  </slot>
+
+  <Hero2
+    tagline="SaaS Web Demo"
+    actions={[
+      { variant: 'primary', target: '_blank', text: 'Get Started', href: 'https://github.com/onwidget/astrowind' },
+      { text: 'Learn more', href: '#features' },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1580481072645-022f9a6dbf27?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'AstroWind Hero Image',
+    }}
+  >
+    <Fragment slot="title">
+      Simplify web design with Astrowind: <br /> your ultimate <span class="text-accent dark:text-white highlight"
+        >SaaS</span
+      > companion<br />
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      <span class="hidden sm:inline">
+        Elevate your website creation process with <span class="font-semibold">AstroWind</span>'s SaaS solutions.</span
+      >
+      Seamlessly blend the power of Astro 4.0 and Tailwind CSS to craft websites that resonate with your brand and audience.
+    </Fragment>
+  </Hero2>
+
+  <Features2
+    title="Sobre nosotros"
+    subtitle={aboutsText}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features2>
+
+  <Features2
+title="¿Qué ofrecemos?"
+    subtitle="Ofrecemos una variedad de servicios enfocada en implementar soluciones tecnológicas que se acoplen a las necesidades de tu negocio o empresa."
+    items={[
+        {
+        title: 'Uso de tecnologías de vanguardia',
+        description:
+          'Nuestros productos hacen uso de una amplia gama de recursos tecnológicos que cumplen con los estandares del mercado actual.',
+        icon: 'flat-color-icons:command-line',
+      },
+      {
+        title: 'Trato estrecho con los clientes',
+        description:
+          'Nos comprometemos a hacer realidad la visión de tu producto a través de una comunicación directa durante el desarrollo del producto.',
+        icon: 'flat-color-icons:collaboration',
+      },
+      {
+        title: 'Calidad y compromiso',
+        description:
+          'Nuestros productos reflejan un firme compromiso con la calidad, garantizando que cada solución que entregamos cumpla en tiempo y forma las necesidades de nuestros clientes.',
+        icon: 'flat-color-icons:todo-list',
+      },
+      
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features2>
+
+  <Brands
+    title="Nuestros clientes"
+    subtitle="En Alteris estamos orgullos de haber podido trabajar con estas empresas"
+    icons={[]}
+    images={[
+      {
+        src: 'https://cdn.pixabay.com/photo/2015/05/26/09/37/paypal-784404_1280.png',
+        alt: 'Super Express NAVI',
+      },
+      {
+        src: '~/assets/images/haur.png',
+        alt: 'Adaptic',
+      },
+    ]}
+  />
+
+
+  <!-- PORTAFOLIO ******************* -->
+  <BlogLatestPosts
+    id="blog"
+    title="Conoce nuestro trabajo"
+    information={`Explora nuestra trayectoria, conoce nuestro trabajo y como nos desarrollamos en cada ámbito.`}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </BlogLatestPosts>
+
+
+  <Steps2
+    title="Contáctanos"
+    subtitle="Have questions? Feel free to contact us using the form below. We're here to help!"
+    callToAction={{
+      text: 'Contact us',
+      href: '/contact',
+    }}
+    items={[
+      {
+        title: 'Correo',
+        description: 'alterismx@outlook.com',
+        icon: 'tabler:mail',
+      },
+      {
+        title: 'Teléfono',
+        description: '+1 (234) 567-890',
+        icon: 'tabler:headset',
+      },
+      {
+        title: 'Redes sociales',
+        description: '@example',
+        icon: 'tabler:brand-twitter',
+      },
+    ]}
+  />
+
+  
+
+  <slot name="footer">
+    <Footer {...footerData} />
+  </slot>
+</Layout>
