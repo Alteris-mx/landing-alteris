@@ -1,0 +1,10 @@
+:root{
+    --black: #000000;
+    --green: #00ff00;
+    --grayish: #3e4742;
+  }
+
+
+.container-custom{
+    background-color: green;
+}
