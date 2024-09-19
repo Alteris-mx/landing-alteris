@@ -4,7 +4,44 @@
     --grayish: #3e4742;
   }
 
-
-.container-custom{
+ .container-custom{
     background-color: green;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.gradient {
+    --size: 500px;
+    --speed: 20s;
+    --easing: cubic-bezier(0.2, 0.2, 0.2, 0.2);
+
+    width: var(--size);
+    height: var(--size);
+    filter: blur(calc(var(--size) / 5));
+    background-image: linear-gradient(hsl(146, 6%, 22%), hsl(149, 78%, 55%), hsl(146, 6%, 22%));
+    animation: rotate var(--speed) var(--easing) alternate infinite;
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    z-index: -1;
+    position: absolute;
+}
+
+body {
+    background-color: #eeeeee;
+    position: relative;
+    display: flex;
+    place-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* This is just to transition when you change the viewport size. */
+* {
+    transition: all 0.25s ease-out;
 }

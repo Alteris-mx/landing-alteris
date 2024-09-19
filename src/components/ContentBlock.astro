@@ -1,0 +1,22 @@
+---
+interface Props {
+    title?: string;
+    subtext?: string;
+    background: string;
+}
+
+let { title, subtext, background } = Astro.props;
+---
+
+
+<section
+        class=`py-16 px-10 z-1 border-2 rounded bg-${background}-800/50 flex flex-col justify-center items-center`>
+    {title && (<>
+        <h1 class=" p-5 text-3xl font-semibold">{title}</h1>
+    </>)}
+    {subtext && (<>
+        <p class="p-3 w-2/3 text-center">{subtext}</p>
+    </>)}
+    <slot name="b-content"></slot>
+
+</section>

@@ -1,7 +1,79 @@
 ---
 import Layout from '../layouts/Layout.astro'
+import ContentBlock from '../components/ContentBlock.astro'
+import Card from '../components/Card.astro'
 ---
 
 <Layout title='Alteris'>
-    <h1>Hola mundo</h1>
+    <main slot="content"
+          class="h-4/5 max-h-screen overflow-y-scroll my-10 pt-3 pb-10 px-10 flex flex-col gap-2">
+
+        <ContentBlock background={"white"}>
+            <div slot="b-content" class="grid grid-cols-2 items-center justify-around gap-5 p-2">
+                <div class="grid grid-rows-4 w-full bg-gray-300/50 rounded p-2 items-center">
+                    <h3 class="text-4xl">Moderniza tu negocio con software hecho a la medida</h3>
+                    <span>Alta disponibilidad, sistemas hechos a tus necesidades, atención al cliente de alta calidad y más.</span>
+                    <div>
+                        <a>
+                            <button class="rounded-2xl bg-gray-800 px-10 py-2 text-white">Saber más</button>
+                        </a>
+                        <a>
+                            <button class="rounded-2xl bg-transparent px-10 py-2 border-2 border-green-700">Contáctanos</button>
+                        </a>
+                    </div>
+                </div>
+                <figure>
+                    <canvas class="bg-red-500 rounded" width="400" height="300"></canvas>
+                </figure>
+            </div>
+
+        </ContentBlock>
+
+
+        <ContentBlock title="¿Quiénes somos?" background={"green"}>
+            <div slot="b-content" class="grid grid-cols-2 items-center justify-around gap-5 p-2">
+                <figure>
+                    <canvas class="bg-red-500 rounded" width="400" height="300"></canvas>
+                </figure>
+                <p>
+                    Somos una empresa de desarrollo de software enfocado en ofrecer soluciones informaticas con
+                    experiencia en el sectores comercial e Industrial dispuesta a ayudarte a crear herramientas
+                    tecnológicas para la resolución de problemáticas en tu ambito.
+                </p>
+            </div>
+
+        </ContentBlock>
+
+
+        <ContentBlock title="¿Qué ofrecemos?" background={"white"}
+                      subtext="Ofrecemos una variedad de servicios enfocada en implementar soluciones tecnológicas que se acoplen a las necesidades de tu negocio o empresa.">
+            <h1 slot="b-content">Hola mundo</h1>
+        </ContentBlock>
+
+        <ContentBlock title="Conoce nuestro trabajo" background={"green"}>
+            <h1 slot="b-content">Hola mundo</h1>
+        </ContentBlock>
+
+        <ContentBlock background={"white"}>
+            <div slot="b-content" class="grid grid-cols-2 items-center justify-around gap-5 p-2">
+                <div class="grid grid-rows-3 w-full p-2 items-center">
+                    <h1 class=" p-5 text-3xl font-semibold">Contáctanos</h1>
+                    <p>¿Quieres saber más? Déjanos un mensaje a través del formulario de contacto. Estamos esperando tu siguiente idea para impulsar tu negocio.</p>
+                    <div>
+                        <a>
+                            <button class="rounded-2xl bg-gray-800 px-10 py-2 text-white">Contacto</button>
+                        </a>
+                    </div>
+                </div>
+                <div class="grid grid-rows-3 w-full p-2 items-center">
+                    <p>red social 1</p>
+                    <p>red social 2</p>
+                    <p>red social 3</p>
+                </div>
+            </div>
+        </ContentBlock>
+
+
+    </main>
+
 </Layout>
