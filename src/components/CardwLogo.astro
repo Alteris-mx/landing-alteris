@@ -1,0 +1,16 @@
+---
+interface Props {
+    title: string;
+    content: string;
+    logo: string;
+}
+
+let {title, logo, content} = Astro.props;
+---
+<section
+        class=`py-16 md:px-10 z-1 rounded bg-green-800 flex flex-col justify-center items-center`>
+    <h1 class=" p-5 text-3xl font-semibold text-center">{title}</h1>
+    <p class="p-3 w-2/3 text-center">{content}</p>
+    <slot name="b-content"></slot>
+
+</section>
