@@ -2,6 +2,9 @@
 import Layout from '../layouts/Layout.astro'
 import ContentBlock from '../components/ContentBlock.astro'
 import Card from '../components/Card.astro'
+import { Image } from 'astro:assets';
+import computers from '../assets/images/computers_md.jpg';
+import team from '../assets/images/team_md.jpg';
 ---
 
 <Layout title='Alteris'>
@@ -9,8 +12,8 @@ import Card from '../components/Card.astro'
           class="h-4/5 max-h-screen overflow-y-scroll my-10 pt-3 pb-10 px-10 flex flex-col gap-2">
 
         <ContentBlock background={"white"}>
-            <div slot="b-content" class="grid grid-cols-2 items-center justify-around gap-5 p-2">
-                <div class="grid grid-rows-4 w-full bg-gray-300/50 rounded p-2 items-center">
+            <div slot="b-content" class="flex flex-col lg:flex-row items-center justify-around gap-5 p-2">
+                <div class="flex flex-col w-full bg-gray-300/50 rounded p-2 items-center px-10 gap-5">
                     <h3 class="text-4xl">Moderniza tu negocio con software hecho a la medida</h3>
                     <span>Alta disponibilidad, sistemas hechos a tus necesidades, atención al cliente de alta calidad y más.</span>
                     <div>
@@ -23,7 +26,7 @@ import Card from '../components/Card.astro'
                     </div>
                 </div>
                 <figure>
-                    <canvas class="bg-red-500 rounded" width="400" height="300"></canvas>
+                    <Image src={computers} alt="Escritorio con computadoras." />
                 </figure>
             </div>
 
@@ -31,11 +34,11 @@ import Card from '../components/Card.astro'
 
 
         <ContentBlock title="¿Quiénes somos?" background={"green"}>
-            <div slot="b-content" class="grid grid-cols-2 items-center justify-around gap-5 p-2">
+            <div slot="b-content" class="flex flex-col lg:flex-row items-center justify-around gap-5 p-2">
                 <figure>
-                    <canvas class="bg-red-500 rounded" width="400" height="300"></canvas>
+                    <Image src={team} alt="Equipo de desarrollo." />
                 </figure>
-                <p>
+                <p class="md:px-10">
                     Somos una empresa de desarrollo de software enfocado en ofrecer soluciones informaticas con
                     experiencia en el sectores comercial e Industrial dispuesta a ayudarte a crear herramientas
                     tecnológicas para la resolución de problemáticas en tu ambito.
@@ -55,7 +58,7 @@ import Card from '../components/Card.astro'
         </ContentBlock>
 
         <ContentBlock background={"white"}>
-            <div slot="b-content" class="grid grid-cols-2 items-center justify-around gap-5 p-2">
+            <div slot="b-content" class="flex flex-col lg:flex-row items-center justify-around gap-5 p-2">
                 <div class="grid grid-rows-3 w-full p-2 items-center">
                     <h1 class=" p-5 text-3xl font-semibold">Contáctanos</h1>
                     <p>¿Quieres saber más? Déjanos un mensaje a través del formulario de contacto. Estamos esperando tu siguiente idea para impulsar tu negocio.</p>
