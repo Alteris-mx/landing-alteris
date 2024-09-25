@@ -1,70 +1,144 @@
 ---
-import Layout from '../layouts/Layout.astro'
-import ContentBlock from '../components/ContentBlock.astro'
-import Card from '../components/Card.astro'
-import { Image } from 'astro:assets';
-import computers from '../assets/images/computers_md.jpg';
-import team from '../assets/images/team_md.jpg';
+import Layout from "../layouts/Layout.astro";
+import Swiper from "../components/Swiper.astro";
+import ContentBlockClear from "../components/ContentBlockClear.astro";
+import ContentBlockGreen from "../components/ContentBlockGreen.astro";
+import computers from "../assets/images/computers_original.jpg";
+import team from "../assets/images/team_original.jpg";
+import CardwLogo from "../components/CardwLogo.astro";
+import SwiperComponent from "../components/SwiperComponent.jsx"
+
 ---
 
-<Layout title='Alteris'>
-    <main slot="content"
-          class="h-4/5 max-h-screen overflow-y-scroll my-10 pt-3 pb-10 px-10 flex flex-col gap-2">
-
-        <ContentBlock background={"white"}>
-            <div slot="b-content" class="flex flex-col lg:flex-row items-center justify-around gap-5 p-2">
-                <div class="flex flex-col w-full bg-gray-300/50 rounded p-2 items-center px-10 gap-5">
-                    <h3 class="text-4xl">Moderniza tu negocio con software hecho a la medida</h3>
-                    <span>Alta disponibilidad, sistemas hechos a tus necesidades, atención al cliente de alta calidad y más.</span>
-                    <div>
+<Layout title="Alteris">
+    <main
+        slot="content"
+        class="h-4/5 max-h-screen overflow-y-scroll my-10 pt-3 pb-10 flex flex-col"
+    >
+        <ContentBlockClear>
+            <div
+                slot="b-content"
+                class="flex flex-col lg:flex-row items-center justify-around gap-5 p-2"
+            >
+                <div class="flex flex-col w-full rounded p-2 px-10 gap-6">
+                    <h3 class="text-5xl">
+                        Moderniza tu negocio con software hecho a la medida
+                    </h3>
+                    <span
+                        >Alta disponibilidad, sistemas hechos a tus necesidades,
+                        atención al cliente de alta calidad y más.</span
+                    >
+                    <div class="">
                         <a>
-                            <button class="rounded-2xl bg-gray-800 px-10 py-2 text-white">Saber más</button>
+                            <button
+                                class="rounded-2xl bg-gray-800 px-10 py-2 text-white"
+                                >Saber más</button
+                            >
                         </a>
                         <a>
-                            <button class="rounded-2xl bg-transparent px-10 py-2 border-2 border-green-700">Contáctanos</button>
+                            <button
+                                class="rounded-2xl bg-transparent px-10 py-2 border-2 border-green-700"
+                                >Contáctanos</button
+                            >
                         </a>
                     </div>
                 </div>
-                <figure>
-                    <Image src={computers} alt="Escritorio con computadoras." />
+                <figure class="w-full">
+                    <img
+                        src={computers.src}
+                        class="w-[600px] rounded-md"
+                        alt="Computadoras"
+                    />
                 </figure>
             </div>
+        </ContentBlockClear>
 
-        </ContentBlock>
-
-
-        <ContentBlock title="¿Quiénes somos?" background={"green"}>
-            <div slot="b-content" class="flex flex-col lg:flex-row items-center justify-around gap-5 p-2">
-                <figure>
-                    <Image src={team} alt="Equipo de desarrollo." />
+        <ContentBlockGreen title="¿Quiénes somos?">
+            <div
+                slot="b-content"
+                class="flex flex-col lg:flex-row items-center justify-around gap-5 p-2"
+            >
+                <figure class="w-full flex justify-center">
+                    <img
+                        src={team.src}
+                        class="w-[400px] rounded-md"
+                        alt="Computadoras"
+                    />
                 </figure>
-                <p class="md:px-10">
-                    Somos una empresa de desarrollo de software enfocado en ofrecer soluciones informaticas con
-                    experiencia en el sectores comercial e Industrial dispuesta a ayudarte a crear herramientas
-                    tecnológicas para la resolución de problemáticas en tu ambito.
-                </p>
+                <div class="w-full">
+                    <p class="text-xl md:px-20">
+                        Somos una empresa de desarrollo de software enfocado en
+                        ofrecer soluciones informaticas con experiencia en el
+                        sectores comercial e Industrial dispuesta a ayudarte a
+                        crear herramientas tecnológicas para la resolución de
+                        problemáticas en tu ambito.
+                    </p>
+                </div>
             </div>
+        </ContentBlockGreen>
 
-        </ContentBlock>
+        <ContentBlockClear
+            title="¿Qué ofrecemos?"
+            subtext="Ofrecemos una variedad de servicios enfocada en implementar soluciones tecnológicas que se acoplen a las necesidades de tu negocio o empresa."
+        >
+            <div
+                slot="b-content"
+                class="flex flex-col lg:flex-row items-center justify-around gap-5 p-2"
+            >
+                <CardwLogo
+                    icon="file-code"
+                    title="Tecnologías de vanguardia"
+                    content="Nuestros productos hacen uso de una amplia gama de recursos tecnológicos que cumplen con los estandares del mercado actual."
+                />
+                <CardwLogo
+                    icon="people-group"
+                    title="Trato estrecho con los clientes"
+                    content="Nuestros productos hacen uso de una amplia gama de recursos tecnológicos que cumplen con los estandares del mercado actual."
+                />
+                <CardwLogo
+                    icon="clipboard-check"
+                    title="Calidad y compromiso"
+                    content="Nos comprometemos a hacer realidad la visión de tu producto a través de una comunicación directa durante el desarrollo del producto."
+                />
+            </div>
+        </ContentBlockClear>
 
+        <ContentBlockGreen
+            title="Nuestros clientes"
+            subtext="En ALTERIS estamos orgullosos de haber prestado nuestros servicios con estas empresas."
+        >
+            <div slot="b-content">
+                <div class="p-3">
+                    <div class="w-[600px] ">
+                        <SwiperComponent client:load />
+                    </div>
+                </div>
+               
+            </div>
+        </ContentBlockGreen>
 
-        <ContentBlock title="¿Qué ofrecemos?" background={"white"}
-                      subtext="Ofrecemos una variedad de servicios enfocada en implementar soluciones tecnológicas que se acoplen a las necesidades de tu negocio o empresa.">
+        <ContentBlockClear title="Conoce nuestro trabajo">
             <h1 slot="b-content">Hola mundo</h1>
-        </ContentBlock>
+        </ContentBlockClear>
 
-        <ContentBlock title="Conoce nuestro trabajo" background={"green"}>
-            <h1 slot="b-content">Hola mundo</h1>
-        </ContentBlock>
-
-        <ContentBlock background={"white"}>
-            <div slot="b-content" class="flex flex-col lg:flex-row items-center justify-around gap-5 p-2">
+        <ContentBlockGreen>
+            <div
+                slot="b-content"
+                class="flex flex-col lg:flex-row items-center justify-around gap-5 p-2"
+            >
                 <div class="grid grid-rows-3 w-full p-2 items-center">
-                    <h1 class=" p-5 text-3xl font-semibold">Contáctanos</h1>
-                    <p>¿Quieres saber más? Déjanos un mensaje a través del formulario de contacto. Estamos esperando tu siguiente idea para impulsar tu negocio.</p>
+                    <h1 class="p-5 text-3xl font-semibold">Contáctanos</h1>
+                    <p>
+                        ¿Quieres saber más? Déjanos un mensaje a través del
+                        formulario de contacto. Estamos esperando tu siguiente
+                        idea para impulsar tu negocio.
+                    </p>
                     <div>
                         <a>
-                            <button class="rounded-2xl bg-gray-800 px-10 py-2 text-white">Contacto</button>
+                            <button
+                                class="rounded-2xl bg-gray-800 px-10 py-2 text-white"
+                                >Contacto</button
+                            >
                         </a>
                     </div>
                 </div>
@@ -74,9 +148,6 @@ import team from '../assets/images/team_md.jpg';
                     <p>red social 3</p>
                 </div>
             </div>
-        </ContentBlock>
-
-
+        </ContentBlockGreen>
     </main>
-
 </Layout>
