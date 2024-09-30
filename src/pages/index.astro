@@ -6,13 +6,15 @@ import ContentBlockGreen from "../components/ContentBlockGreen.astro";
 import computers from "../assets/images/computers_original.jpg";
 import team from "../assets/images/team_original.jpg";
 import CardwLogo from "../components/CardwLogo.astro";
-import SwiperComponent from "../components/SwiperComponent.jsx"
+import SwiperComponent from "../components/SwiperComponent.tsx"
+import ContactLinkElement from "../components/ContactLinkElement.astro";
+import Footer from "../components/Footer.astro";
 ---
 
 <Layout title="Alteris">
     <main
             slot="content"
-            class="h-4/5 max-h-screen overflow-y-scroll my-10 pt-3 pb-10 flex flex-col"
+            class="h-4/5 max-h-screen overflow-y-scroll overflow-x-hidden mt-10 pt-3 flex flex-col"
     >
         <ContentBlockClear>
             <div
@@ -28,14 +30,14 @@ import SwiperComponent from "../components/SwiperComponent.jsx"
                         atención al cliente de alta calidad y más.</span
                     >
                     <div class="">
-                        <a>
+                        <a href="#identity">
                             <button
                                     class="rounded-2xl bg-gray-800 px-10 py-2 text-white"
                             >Saber más
                             </button
                             >
                         </a>
-                        <a>
+                        <a href="#contact">
                             <button
                                     class="rounded-2xl bg-transparent px-10 py-2 border-2 border-green-700"
                             >Contáctanos
@@ -54,7 +56,7 @@ import SwiperComponent from "../components/SwiperComponent.jsx"
             </div>
         </ContentBlockClear>
 
-        <ContentBlockGreen title="¿Quiénes somos?">
+        <ContentBlockGreen title="¿Quiénes somos?" id="identity">
             <div
                     slot="b-content"
                     class="flex flex-col lg:flex-row items-center justify-around gap-5 p-2"
@@ -66,8 +68,8 @@ import SwiperComponent from "../components/SwiperComponent.jsx"
                             alt="Computadoras"
                     />
                 </figure>
-                <div class="w-full">
-                    <p class="text-xl md:px-20">
+                <div class="w-full justify-center">
+                    <p class="text-xl px-5 md:px-20">
                         Somos una empresa de desarrollo de software enfocado en
                         ofrecer soluciones informaticas con experiencia en el
                         sectores comercial e Industrial dispuesta a ayudarte a
@@ -94,12 +96,12 @@ import SwiperComponent from "../components/SwiperComponent.jsx"
                 <CardwLogo
                         icon="people-group"
                         title="Trato estrecho con los clientes"
-                        content="Nuestros productos hacen uso de una amplia gama de recursos tecnológicos que cumplen con los estandares del mercado actual."
+                        content="Nos comprometemos a hacer realidad la visión de tu producto a través de una comunicación directa durante el desarrollo del producto."
                 />
                 <CardwLogo
                         icon="clipboard-check"
                         title="Calidad y compromiso"
-                        content="Nos comprometemos a hacer realidad la visión de tu producto a través de una comunicación directa durante el desarrollo del producto."
+                        content="La confianza de nuestros clientes es lo más importante. La calidad, seguridad y compromiso en nuestros servicios nunca harán falta."
                 />
             </div>
         </ContentBlockClear>
@@ -121,19 +123,19 @@ import SwiperComponent from "../components/SwiperComponent.jsx"
             <h1 slot="b-content">Hola mundo</h1>
         </ContentBlockClear>
 
-        <ContentBlockGreen>
+        <ContentBlockGreen id="contact">
             <div
                     slot="b-content"
                     class="flex flex-col lg:flex-row items-center justify-around gap-5 p-2"
             >
                 <div class="grid grid-rows-3 w-full p-2 items-center">
-                    <h1 class="p-5 text-3xl font-semibold">Contáctanos</h1>
-                    <p>
+                    <h1 class="p-5 text-3xl font-semibold text-center sm:text-start">Contáctanos</h1>
+                    <p class="flex px-3 justify-center">
                         ¿Quieres saber más? Déjanos un mensaje a través del
                         formulario de contacto. Estamos esperando tu siguiente
                         idea para impulsar tu negocio.
                     </p>
-                    <div>
+                    <div class="flex justify-center lg:justify-start">
                         <a>
                             <button
                                     class="rounded-2xl bg-gray-800 px-10 py-2 text-white"
@@ -143,12 +145,19 @@ import SwiperComponent from "../components/SwiperComponent.jsx"
                         </a>
                     </div>
                 </div>
-                <div class="grid grid-rows-3 w-full p-2 items-center">
-                    <p>red social 1</p>
-                    <p>red social 2</p>
-                    <p>red social 3</p>
-                </div>
+                <ul class="grid grid-rows-3 w-full p-2 gap-5 items-center justify-center lg:justify-start">
+                    <li>
+                        <ContactLinkElement link="mailto:alterismx@outlook.com" icon="at" text="alterismx@outlook.com"/>
+                    </li>
+                    <li>
+                        <ContactLinkElement link="https://wa.me/522295207780" icon="phone" text="+52 2295207780"/>
+                    </li>
+                    <li>
+                        <ContactLinkElement link="https://x.com/MxAlteris" icon="twitter" text="@MxAlteris"/>
+                    </li>
+                </ul>
             </div>
         </ContentBlockGreen>
+        <Footer />
     </main>
 </Layout>

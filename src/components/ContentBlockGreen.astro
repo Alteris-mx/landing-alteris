@@ -3,13 +3,14 @@ interface Props {
     title?: string;
     subtext?: string;
     background?: string;
+    id?:string;
 }
 
-let { title, subtext, background } = Astro.props;
+let { title, subtext, background, id } = Astro.props;
 ---
 
 
-<section
+<section id={id}
         class=`py-16 md:px-10 z-1 rounded bg-green-300/50 flex flex-col justify-center items-center`>
     {title && (<>
         <h1 class=" p-5 text-3xl font-semibold text-center">{title}</h1>
