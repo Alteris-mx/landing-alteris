@@ -6,55 +6,52 @@ import 'swiper/css/bundle';
 import 'swiper/css/free-mode';
 import 'swiper/css/pagination';
 
+import NAVILogo from '../assets/images/NAVI-Logo.svg.png'
+import adaptic from '../assets/images/adaptic.png' 
 
-import {type CollectionEntry, getCollection, getEntry} from 'astro:content';
+
+import { type CollectionEntry, getCollection, getEntry } from 'astro:content';
 import img from '../assets/images/black.png';
 
 
 // import required modules
-import { FreeMode, Pagination, Autoplay, EffectCoverflow, EffectCards} from 'swiper/modules';
+import { FreeMode, Autoplay } from 'swiper/modules';
 
-const clientsData:CollectionEntry<'clients'>[] = await getCollection('clients');
+const clientsData: CollectionEntry<'clients'>[] = await getCollection('clients');
 
 export default function SwiperComponent() {
   return (
     <>
       <Swiper
-          width={900} //todo: remove and fix infinite width problem
-        slidesPerView={clientsData.length > 4 ? 4 : clientsData.length}
-        spaceBetween={5}
+        //  width={900} //todo: remove and fix infinite width problem
+        slidesPerView={2}
+        spaceBetween={50}
         freeMode={true}
-        pagination={{
-          clickable: true,
-        }}
-              coverflowEffect={{
-                rotate: 50,
-                stretch: 0,
-                depth: 100,
-                modifier: 1,
-                slideShadows: true,
-              }}
-        loop={clientsData.length > 3}
+        loop={true}
+        width={800}
         autoplay={
-            {
-                delay: 1000,
-                disableOnInteraction: false
-            }
+          {
+            delay: 1000,
+            disableOnInteraction: true
+          }
         }
         modules={[FreeMode, Autoplay]}
         className="mySwiper"
       >
-          {
-              clientsData.map((item, index) => (
-                  <SwiperSlide key={`${index}`}>
-                      <div className={`rounded-xl bg-green-50 shadow-lg p-3`}>
-                          <figure>
-                              <img src={`/public/${item.data.image}`} width={150} height={150} alt={item.id}/>
-                          </figure>
-                      </div>
-                  </SwiperSlide>
-              ))
-          }
+        <SwiperSlide >
+          <div className={`flex justify-center rounded-xl bg-green-50 p-3`}>
+            <figure>
+              <img className='w-[250px] h-[150px] object-contain' src={adaptic.src} alt="adaptic" />
+            </figure>
+          </div>
+        </SwiperSlide>
+        <SwiperSlide >
+          <div className={`flex justify-center rounded-xl bg-green-50 p-3`}>
+            <figure>
+              <img className='w-[150px] h-[150px] object-contain' src={NAVILogo.src} alt="senavisa" />
+            </figure>
+          </div>
+        </SwiperSlide>
       </Swiper>
     </>
   );

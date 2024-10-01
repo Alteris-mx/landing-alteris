@@ -8,7 +8,12 @@ const clientCollection = defineCollection({
 })
 
 const projectCollection = defineCollection({
-    type:'content'
+    type:'data',
+    schema: z.object({
+        image: z.string(),
+        title: z.string(),
+        description: z.string()
+    }),
 })
 
 export const collections = {
