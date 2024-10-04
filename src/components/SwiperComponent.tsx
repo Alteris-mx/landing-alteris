@@ -16,19 +16,42 @@ import img from '../assets/images/black.png';
 
 // import required modules
 import { FreeMode, Autoplay } from 'swiper/modules';
+import { useEffect, useState } from 'react';
 
 const clientsData: CollectionEntry<'clients'>[] = await getCollection('clients');
 
+
 export default function SwiperComponent() {
+  
+  useEffect(() => {
+    const handleResize = () => {
+        const screenWidth = window.innerWidth;
+
+       setDynamicWidth(screenWidth * 0.8)
+    };
+
+    window.addEventListener('resize', handleResize);
+    handleResize();
+    // Initial adjustment
+
+    return () => {
+        window.removeEventListener('resize', handleResize);
+    };
+}, []);
+
+const [dynamicWidth, setDynamicWidth] = useState<number>(0);
+
+
+
   return (
     <>
       <Swiper
         //  width={900} //todo: remove and fix infinite width problem
-        slidesPerView={2}
+        slidesPerView={Math.ceil(dynamicWidth/250)}
         spaceBetween={50}
         freeMode={true}
         loop={true}
-        width={800}
+        width={dynamicWidth}
         autoplay={
           {
             delay: 1000,

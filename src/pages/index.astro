@@ -107,21 +107,20 @@ import Projects from "../components/Projects.tsx";
         <ContentBlockGreen
             title="Nuestros clientes"
             subtext="En ALTERIS estamos orgullosos de haber prestado nuestros servicios con estas empresas."
+            blank={true}
         >
             <div
                 slot="b-content"
-                class="flex flex-col lg:flex-row items-center justify-around w-full"
+                class="w-full"
             >
                  <SwiperComponent client:load />
             </div>
         </ContentBlockGreen>
 
-        <ContentBlockClear id="projects" title="Conoce nuestro trabajo">
+        <ContentBlockClear id="projects" title="Conoce nuestro trabajo"
+        subtext="Nuestros proyectos son el reflejo de la calidad y compromiso que ofrecemos a nuestros clientes."
+        blank={true}>
             <div slot="b-content">
-                <p class="text-center">
-                    Nuestros proyectos son el reflejo de la calidad y compromiso
-                    que ofrecemos a nuestros clientes.
-                </p>
                 <div class="p-4">
                     <Projects client:load/>
                 </div>
@@ -145,7 +144,7 @@ import Projects from "../components/Projects.tsx";
                         idea para impulsar tu negocio.
                     </p>
                     <div class="flex justify-center lg:justify-start">
-                        <a>
+                        <a  href="mailto:alterismx@outlook.com">
                             <button
                                 class="rounded-2xl bg-gray-800 px-10 py-2 text-white"
                                 >Contacto
