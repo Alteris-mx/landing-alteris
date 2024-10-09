@@ -3,49 +3,28 @@ interface Props {
     title?: string;
     subtext?: string;
     id?: string;
-    blank?: boolean;
 }
 
-let { title, subtext, id, blank } = Astro.props;
+let { title, subtext, id } = Astro.props;
 ---
 
-{
-    blank === true ? (
-        <section class="py-16 md:px-10 z-1 rounded bg-green-300/50">
-            <div class="flex flex-col justify-center items-center">
-                {title && (
-                    <>
-                        <h1 class=" p-5 text-3xl font-semibold text-center">
-                            {title}
-                        </h1>
-                    </>
-                )}
-                {subtext && (
-                    <>
-                        <p class="p-3 w-2/3 text-center">{subtext}</p>
-                    </>
-                )}
-            </div>
-            <slot name="b-content" />
-        </section>
-    ) : (
-        <section
-            id={id}
-            class="py-16 md:px-10 z-1 rounded bg-green-300/50 flex flex-col justify-center items-center"
-        >
-            {title && (
-                <>
-                    <h1 class=" p-5 text-3xl font-semibold text-center">
-                        {title}
-                    </h1>
-                </>
-            )}
-            {subtext && (
-                <>
-                    <p class="p-3 w-2/3 text-center">{subtext}</p>
-                </>
-            )}
-            <slot name="b-content" />
-        </section>
-    )
-}
+<section
+    id={id}
+    class="py-16 min-h-[100vh] md:px-10 z-1 rounded bg-green-300/50 flex flex-col justify-center items-center"
+>
+    {
+        title && (
+            <>
+                <h1 class="text-4xl 2xl:text-6xl text-center">{title}</h1>
+            </>
+        )
+    }
+    {
+        subtext && (
+            <>
+                <p class="p-3 w-2/3 text-center 2xl:text-2xl text-gray-600">{subtext}</p>
+            </>
+        )
+    }
+    <slot name="b-content" />
+</section>

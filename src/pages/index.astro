@@ -22,10 +22,10 @@ import Projects from "../components/Projects.tsx";
                 class="flex flex-col lg:flex-row items-center justify-around gap-5 p-2"
             >
                 <div class="flex flex-col w-full rounded p-2 px-10 gap-6">
-                    <h3 class="text-5xl">
+                    <h3 class="text-5xl 2xl:text-6xl">
                         Moderniza tu negocio con software hecho a la medida
                     </h3>
-                    <span
+                    <span class="text-gray-600 text-md 2xl:text-lg"
                         >Alta disponibilidad, sistemas hechos a tus necesidades,
                         atención al cliente de alta calidad y más.</span
                     >
@@ -44,30 +44,34 @@ import Projects from "../components/Projects.tsx";
                         </a>
                     </div>
                 </div>
-                <figure class="w-full">
+                <figure class="flex w-full justify-center">
                     <img
                         src={computers.src}
-                        class="w-[600px] rounded-md"
+                        class="w-[600px] 2xl:w-[80vh] rounded-md"
                         alt="Computadoras"
                     />
                 </figure>
             </div>
         </ContentBlockClear>
 
-        <ContentBlockGreen title="¿Quiénes somos?" id="identity">
+        <ContentBlockGreen
+            title="¿Quiénes somos?"
+            subtext="Conécta más con tus próximos socios"
+            id="identity"
+        >
             <div
                 slot="b-content"
-                class="flex flex-col lg:flex-row items-center justify-around gap-5 p-2"
+                class="flex flex-col lg:flex-row items-center justify-around gap-5 pt-10"
             >
                 <figure class="w-full flex justify-center">
                     <img
                         src={team.src}
-                        class="w-[400px] rounded-md"
+                        class="w-[400px] 2xl:w-[70vh] rounded-md"
                         alt="Computadoras"
                     />
                 </figure>
                 <div class="w-full justify-center">
-                    <p class="text-xl px-5 md:px-20">
+                    <p class="text-xl 2xl:text-2xl px-5 md:px-20">
                         Somos una empresa de desarrollo de software enfocado en
                         ofrecer soluciones informaticas con experiencia en el
                         sectores comercial e Industrial dispuesta a ayudarte a
@@ -84,7 +88,7 @@ import Projects from "../components/Projects.tsx";
         >
             <div
                 slot="b-content"
-                class="flex flex-col lg:flex-row items-center justify-around gap-5 p-2"
+                class="flex flex-col lg:flex-row items-center justify-around gap-5 pt-10"
             >
                 <CardwLogo
                     icon="file-code"
@@ -104,26 +108,41 @@ import Projects from "../components/Projects.tsx";
             </div>
         </ContentBlockClear>
 
-        <ContentBlockGreen
-            title="Nuestros clientes"
-            subtext="En ALTERIS estamos orgullosos de haber prestado nuestros servicios con estas empresas."
-            blank={true}
-        >
-            <div
-                slot="b-content"
-                class="w-full"
-            >
-                 <SwiperComponent client:load />
+        <ContentBlockGreen title="Nuestros clientes">
+            <div slot="b-content" class="">
+                <div class="grid grid-cols-2 pt-10">
+                    <div class="w-full">
+                        <p>
+                            En ALTERIS, nos enorgullecemos de colaborar con una
+                            amplia variedad de clientes que confían en nuestras
+                            soluciones tecnológicas para optimizar sus procesos
+                            y alcanzar nuevos niveles de eficiencia. Desde
+                            pequeñas empresas hasta grandes corporaciones,
+                            nuestro enfoque personalizado nos permite adaptarnos
+                            a las necesidades específicas de cada cliente,
+                            brindando resultados excepcionales en cada proyecto.
+                        </p>
+                        <a href="#contact">
+                            <button
+                                class="rounded-2xl bg-transparent px-10 py-2 border-2 border-green-700"
+                                >Contáctanos
+                            </button>
+                        </a>
+                    </div>
+                    <div class="w-32 pl-24">
+                        <SwiperComponent client:load />
+                    </div>
+                </div>
             </div>
         </ContentBlockGreen>
 
-        <ContentBlockClear id="projects" title="Conoce nuestro trabajo"
-        subtext="Nuestros proyectos son el reflejo de la calidad y compromiso que ofrecemos a nuestros clientes."
-        blank={true}>
-            <div slot="b-content">
-                <div class="p-4">
-                    <Projects client:load/>
-                </div>
+        <ContentBlockClear
+            id="projects"
+            title="Conoce nuestro trabajo"
+            subtext="Nuestros proyectos son el reflejo de la calidad y compromiso que ofrecemos a nuestros clientes."
+        >
+            <div slot="b-content" class="flex w-full justify-center px-5">
+                <Projects client:load />
             </div>
         </ContentBlockClear>
 
@@ -144,7 +163,7 @@ import Projects from "../components/Projects.tsx";
                         idea para impulsar tu negocio.
                     </p>
                     <div class="flex justify-center lg:justify-start">
-                        <a  href="mailto:alterismx@outlook.com">
+                        <a href="mailto:alterismx@outlook.com">
                             <button
                                 class="rounded-2xl bg-gray-800 px-10 py-2 text-white"
                                 >Contacto

@@ -2,32 +2,31 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 // Import Swiper styles
-import 'swiper/css/bundle';
-import 'swiper/css/free-mode';
-import 'swiper/css/pagination';
+import 'swiper/css/effect-cards';
+
+import '../assets/styles/main.css'
+
 
 import NAVILogo from '../assets/images/NAVI-Logo.svg.png'
-import adaptic from '../assets/images/adaptic.png' 
+import adaptic from '../assets/images/adaptic.png'
 
 
 import { type CollectionEntry, getCollection, getEntry } from 'astro:content';
-import img from '../assets/images/black.png';
 
 
 // import required modules
-import { FreeMode, Autoplay } from 'swiper/modules';
+import {Autoplay, EffectCards } from 'swiper/modules';
 import { useEffect, useState } from 'react';
 
 const clientsData: CollectionEntry<'clients'>[] = await getCollection('clients');
 
 
 export default function SwiperComponent() {
-  
+
   useEffect(() => {
     const handleResize = () => {
-        const screenWidth = window.innerWidth;
-
-       setDynamicWidth(screenWidth * 0.8)
+      const screenWidth = window.innerWidth;
+      setDynamicWidth(screenWidth * 0.5)
     };
 
     window.addEventListener('resize', handleResize);
@@ -35,32 +34,40 @@ export default function SwiperComponent() {
     // Initial adjustment
 
     return () => {
-        window.removeEventListener('resize', handleResize);
+      window.removeEventListener('resize', handleResize);
     };
-}, []);
+  }, []);
 
-const [dynamicWidth, setDynamicWidth] = useState<number>(0);
+  const [dynamicWidth, setDynamicWidth] = useState<number>(0);
 
 
 
   return (
     <>
       <Swiper
-        //  width={900} //todo: remove and fix infinite width problem
-        slidesPerView={Math.ceil(dynamicWidth/250)}
-        spaceBetween={50}
-        freeMode={true}
+        effect={'cards'}
+        width={320}
+        height={240}
         loop={true}
-        width={dynamicWidth}
-        autoplay={
-          {
-            delay: 1000,
-            disableOnInteraction: true
-          }
-        }
-        modules={[FreeMode, Autoplay]}
-        className="mySwiper"
+        autoplay={true}
+        modules={[EffectCards,Autoplay]}
+        className="swiper-kek"
       >
+
+        <SwiperSlide >
+          <div className={`flex justify-center rounded-xl bg-green-50 p-3`}>
+            <figure>
+              <img className='w-[250px] h-[150px] object-contain' src={adaptic.src} alt="adaptic" />
+            </figure>
+          </div>
+        </SwiperSlide>
+        <SwiperSlide >
+          <div className={`flex justify-center rounded-xl bg-green-50 p-3`}>
+            <figure>
+              <img className='w-[150px] h-[150px] object-contain' src={NAVILogo.src} alt="senavisa" />
+            </figure>
+          </div>
+        </SwiperSlide>
         <SwiperSlide >
           <div className={`flex justify-center rounded-xl bg-green-50 p-3`}>
             <figure>
