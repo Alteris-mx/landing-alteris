@@ -28,7 +28,7 @@ import Navbar from '../components/Navbar.astro'
 <body>
 
 <div class="w-full font-sans">
-    <Navbar />
+    <Navbar client:load />
     <slot name="content" />
 
 </div>

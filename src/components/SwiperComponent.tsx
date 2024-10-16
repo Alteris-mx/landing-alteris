@@ -46,8 +46,6 @@ export default function SwiperComponent() {
     <>
       <Swiper
         effect={'cards'}
-        width={320}
-        height={240}
         loop={true}
         autoplay={true}
         modules={[EffectCards,Autoplay]}
