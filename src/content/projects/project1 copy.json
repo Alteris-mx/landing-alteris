@@ -1,5 +1,6 @@
 {
     "title": "Aplicación WEB Senavisa",
     "description": "Plataforma para gestión de clientes y generación de diversos CFDI para una empresa de fletes.",
-    "image": "/senavisa.jpg"
+    "image": "/senavisa.jpg",
+    "img_alt":"UI webapp SENAVISA"
 }

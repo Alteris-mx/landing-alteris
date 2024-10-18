@@ -7,7 +7,7 @@ import 'swiper/css/effect-cards';
 import '../assets/styles/main.css'
 
 
-import NAVILogo from '../assets/images/NAVI-Logo.svg.png'
+import NAVILogo from '../assets/images/navi_FINALFINALFINALFINALFINAL.png'
 import adaptic from '../assets/images/adaptic.png'
 
 

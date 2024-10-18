@@ -1,13 +1,12 @@
 
   
   #menu {
-    z-index: 50;
+    z-index: 51;
   }
   
   #menu-bar {
     width: 45px;
     height: 40px;
-    margin: 30px 0 20px 20px;
     cursor: pointer;
   }
   
@@ -34,17 +33,17 @@
   }
   
   .nav ul {
-    padding: 0 22px;
+    padding: 0 5px;
   }
   
   .nav li {
     list-style: none;
-    padding: 12px 0;
+    padding: 7% 0;
   }
   
   .nav li a {
     color: white;
-    font-size: 20px;
+    font-size: 18px;
     text-decoration: none;
   }
   
@@ -59,7 +58,7 @@
   }
   
   .menu-bg {
-    z-index: 40;
+    z-index: 47;
     width: 0;
     height: 0;
     margin: 30px 0 20px 20px;

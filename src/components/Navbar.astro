@@ -4,6 +4,7 @@ import logoWhite from "../assets/images/text_bg.png";
 import iconBlack from "../assets/images/green.png";
 import logoBlack from "../assets/images/text_wg.png";
 import "../assets/styles/navbar.css";
+import { Image } from "astro:assets";
 
 ---
 
@@ -13,17 +14,17 @@ import "../assets/styles/navbar.css";
     <nav
             class="mx-auto flex max-w-6xl gap-8 px-6 transition-all duration-200 ease-in-out lg:px-12 py-4"
     >
-        <div class="relative flex items-center">
-            <img
-                    src={iconWhite.src}
+        <div class="relative flex items-center" id="logo">
+            <Image
+                    src={iconWhite}
                     loading="lazy"
                     width="32"
                     class=""
                     height="32"
                     alt="alteris logo"
             />
-            <img
-                    src={logoWhite.src}
+            <Image
+                    src={logoWhite}
                     loading="lazy"
                     class="object-contain pl-2"
                     width="100"
@@ -32,7 +33,13 @@ import "../assets/styles/navbar.css";
         </div>
         <ul class="hidden items-center justify-center gap-6 md:flex">
             <li class="pt-1.5 font-dm text-sm font-medium text-slate-700">
-                <a href="#identity">Inicio</a>
+                <a href="#hero">Inicio</a>
+            </li>
+            <li class="pt-1.5 font-dm text-sm font-medium text-slate-700">
+                <a href="#identity">¿Quiénes somos?</a>
+            </li>
+            <li class="pt-1.5 font-dm text-sm font-medium text-slate-700">
+                <a href="#clients">Clientes</a>
             </li>
             <li class="pt-1.5 font-dm text-sm font-medium text-slate-700">
                 <a href="#projects">Portafolio</a>
@@ -41,15 +48,16 @@ import "../assets/styles/navbar.css";
                 <a href="#contact">Contacto</a>
             </li>
         </ul>
-        
+        <div class="grow"></div>
         <div class="hidden items-center justify-center gap-6 md:flex">
             <a
-                    href="#"
+                    href="#contact"
                     class="rounded-md bg-gradient-to-br from-green-600 to-emerald-400 px-3 py-1.5 font-dm text-sm font-medium text-white shadow-md shadow-green-400/50 transition-transform duration-200 ease-in-out hover:scale-[1.03]"
             >Contáctanos
             </a>
         </div>
         <div class="relative flex items-center justify-center md:hidden">
+            <div class="menu-bg" id="menu-bg"></div>
             <div id="menu">
                 <div id="menu-bar" >
                     <div id="bar1" class="bar"></div>
@@ -58,26 +66,37 @@ import "../assets/styles/navbar.css";
                 </div>
                 <div class="nav" id="nav">
                     <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Contact</a></li>
-                        <li><a href="#">Blog</a></li>
+                        <li>
+                            <a href="#hero">Inicio</a>
+                        </li>
+                        <li><a href="#identity">¿Quiénes somos?</a></li>
+                        <li><a href="#clients">Clientes</a></li>
+                        <li><a href="#projects">Portafolio</a></li>
+                        <li><a href="#contact">Contacto</a></li>
                     </ul>
                 </div>
+                
             </div>
         </div>
     </nav>
 </header>
-<div class="menu-bg" id="menu-bg"></div>
+
 
 <script>
      const menu = document.getElementById("menu-bar");
-     
-     menu.addEventListener('click', () => {
+
+
+     function toggleNavbar(){
         document.getElementById("menu-bar").classList.toggle("change");
         document.getElementById("nav").classList.toggle("change");
         document.getElementById("menu-bg").classList.toggle("change-bg");
-    });
+        document.getElementById("logo").classList.toggle("hidden");
+     }
+     
+     menu.addEventListener('click', toggleNavbar);
+
+    
+    document.getElementById('nav').addEventListener('click', toggleNavbar)
 
 
 

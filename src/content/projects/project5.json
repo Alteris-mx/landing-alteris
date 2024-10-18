@@ -1,5 +1,6 @@
 {
-    "title": "Sistema ANDON para estación de Kiteos",
-    "description": "Dashboard de información y sistema ANDON para estación de producción.",
-    "image": "/ventek.png"
+    "title": "ANDON de producción",
+    "description": "Dashboard de información y sistema ANDON para área de producción.",
+    "image": "/ventek.png",
+    "img_alt":"UI del sistema"
 }

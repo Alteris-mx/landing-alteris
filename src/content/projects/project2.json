@@ -1,5 +1,6 @@
 {
     "title": "Sistema de Monitoreo y trazabilidad",
     "description": "Servicio de comunicación y recopilación de datos para una línea de producción automatizada",
-    "image": "https://via.placeholder.com/150"
+    "image": "https://via.placeholder.com/150",
+    "img_alt":"Línea de producción"
 }
