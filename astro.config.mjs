@@ -1,60 +1,16 @@
-import path from 'path';
-import { fileURLToPath } from 'url';
-import { defineConfig, squooshImageService } from 'astro/config';
-import sitemap from '@astrojs/sitemap';
-import tailwind from '@astrojs/tailwind';
-import mdx from '@astrojs/mdx';
-import partytown from '@astrojs/partytown';
-import icon from 'astro-icon';
-import compress from 'astro-compress';
-import astrowind from './vendor/integration';
-import { readingTimeRemarkPlugin, responsiveTablesRehypePlugin, lazyImagesRehypePlugin } from './src/utils/frontmatter.mjs';
+import { defineConfig } from 'astro/config';
+
+import tailwind from "@astrojs/tailwind";
+
 import react from "@astrojs/react";
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const hasExternalScripts = false;
-const whenExternalScripts = (items = []) => hasExternalScripts ? Array.isArray(items) ? items.map(item => item()) : [items()] : [];
+
+import icon from "astro-icon";
 
 // https://astro.build/config
 export default defineConfig({
-  output: 'static',
-  integrations: [tailwind({
-    applyBaseStyles: false
-  }), sitemap(), mdx(), icon({
-    include: {
-      tabler: ['*'],
-      'flat-color-icons': ['*']
+  integrations: [tailwind(), react(
+    {
+      include: ['**/react/*'],
     }
-  }), ...whenExternalScripts(() => partytown({
-    config: {
-      forward: ['dataLayer.push']
-    }
-  })), compress({
-    CSS: true,
-    HTML: {
-      'html-minifier-terser': {
-        removeAttributeQuotes: false
-      }
-    },
-    Image: false,
-    JavaScript: true,
-    SVG: false,
-    Logger: 1
-  }), astrowind({
-    config: './src/config.yaml'
-  }), react()],
-  image: {
-    service: squooshImageService(),
-    domains: ['cdn.pixabay.com']
-  },
-  markdown: {
-    remarkPlugins: [readingTimeRemarkPlugin],
-    rehypePlugins: [responsiveTablesRehypePlugin, lazyImagesRehypePlugin]
-  },
-  vite: {
-    resolve: {
-      alias: {
-        '~': path.resolve(__dirname, './src')
-      }
-    }
-  }
+  ), icon()]
 });
