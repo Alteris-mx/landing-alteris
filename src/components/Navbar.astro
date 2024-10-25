@@ -83,20 +83,20 @@ import { Image } from "astro:assets";
 
 
 <script>
-     const menu = document.getElementById("menu-bar");
+     const menu:HTMLElement|null = document.getElementById("menu-bar");
 
 
      function toggleNavbar(){
-        document.getElementById("menu-bar").classList.toggle("change");
-        document.getElementById("nav").classList.toggle("change");
-        document.getElementById("menu-bg").classList.toggle("change-bg");
-        document.getElementById("logo").classList.toggle("hidden");
+        document.getElementById("menu-bar")?.classList.toggle("change");
+        document.getElementById("nav")?.classList.toggle("change");
+        document.getElementById("menu-bg")?.classList.toggle("change-bg");
+        document.getElementById("logo")?.classList.toggle("hidden");
      }
      
-     menu.addEventListener('click', toggleNavbar);
+     menu?.addEventListener('click', toggleNavbar);
 
     
-    document.getElementById('nav').addEventListener('click', toggleNavbar)
+    document.getElementById('nav')?.addEventListener('click', toggleNavbar)
 
 
 
