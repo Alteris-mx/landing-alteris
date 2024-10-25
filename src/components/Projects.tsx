@@ -6,34 +6,16 @@ import 'swiper/css/bundle';
 import 'swiper/css/free-mode';
 import 'swiper/css/pagination';
 
-import { type CollectionEntry, getCollection, getEntry } from 'astro:content';
+import { type CollectionEntry, getCollection } from 'astro:content';
 
 
 // import required modules
 import { FreeMode, Autoplay } from 'swiper/modules';
-import { useEffect, useState } from 'react';
 
 const projectsData: CollectionEntry<"projects">[] = await getCollection("projects");
 
 
 export default function Projects() {
-
-    useEffect(() => {
-        const handleResize = () => {
-            const screenWidth = window.innerWidth;
-            setDynamicWidth(screenWidth * 0.5)
-        };
-
-        window.addEventListener('resize', handleResize);
-        handleResize();
-        // Initial adjustment
-
-        return () => {
-            window.removeEventListener('resize', handleResize);
-        };
-    }, []);
-
-    const [dynamicWidth, setDynamicWidth] = useState<number>(0);
 
     return (
         <>

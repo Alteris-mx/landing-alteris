@@ -10,37 +10,15 @@ import '../assets/styles/main.css'
 import NAVILogo from '../assets/images/navi_logo.png'
 import adaptic from '../assets/images/adaptic.png'
 
-
-import { type CollectionEntry, getCollection, getEntry } from 'astro:content';
-
-
 // import required modules
 import {Autoplay, EffectCards } from 'swiper/modules';
-import { useEffect, useState } from 'react';
 
-const clientsData: CollectionEntry<'clients'>[] = await getCollection('clients');
+
+//import { type CollectionEntry, getCollection } from 'astro:content';
+//const clientsData: CollectionEntry<'clients'>[] = await getCollection('clients');
 
 
 export default function SwiperComponent() {
-
-  useEffect(() => {
-    const handleResize = () => {
-      const screenWidth = window.innerWidth;
-      setDynamicWidth(screenWidth * 0.5)
-    };
-
-    window.addEventListener('resize', handleResize);
-    handleResize();
-    // Initial adjustment
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
-
-  const [dynamicWidth, setDynamicWidth] = useState<number>(0);
-
-
 
   return (
     <>
