@@ -12,5 +12,7 @@ export default defineConfig({
     {
       include: ['**/react/*'],
     }
-  ), icon()]
+  ), icon()],
+    site: 'https://alteris-mx.github.io/landing-alteris/',
+    base: '/landing-alteris',
 });
