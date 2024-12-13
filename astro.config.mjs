@@ -13,6 +13,5 @@ export default defineConfig({
       include: ['**/react/*'],
     }
   ), icon()],
-    site: 'https://alteris-mx.github.io/landing-alteris/',
-    base: '/landing-alteris',
+    site: 'https://alterismx.com/',
 });
